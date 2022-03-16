@@ -16,6 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(
+          // Transitions between screens on different platforms
+          builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          },
+        ),
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: RoutePage.onGenerateRoute,

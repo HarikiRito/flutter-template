@@ -17,8 +17,8 @@ class _CounterScreenState extends State<CounterScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
+          children: const [
+            Text(
               'You have pushed the button this many times:',
             ),
           ],
@@ -28,7 +28,7 @@ class _CounterScreenState extends State<CounterScreen> {
         onPressed: () {},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
