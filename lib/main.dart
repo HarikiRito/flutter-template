@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:untitled/screens/counter/main.dart';
+import 'package:untitled/base/routing/route_name.dart';
+
+import 'base/routing/key.dart';
+import 'base/routing/route_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +14,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CounterScreen(),
+      onGenerateRoute: RoutePage.onGenerateRoute,
+      navigatorKey: NavigatorName.navigatorKey,
+      initialRoute: RouteName.root,
     );
   }
 }
