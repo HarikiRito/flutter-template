@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../base/routing/route_name.dart';
+import 'package:untitled/base/routing/route_name.dart';
+
+import '../../base/routing/input/route_input.dart';
+import '../../base/routing/route_navigator.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -12,10 +15,13 @@ class RootScreen extends StatelessWidget {
       body: Column(
         children: [
           ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RouteName.counter);
-              },
-              child: Text('Click here to navigate'))
+            onPressed: () {
+              RouteNavigator.push(
+                RouteInput.counter(),
+              );
+            },
+            child: const Text('Click here to navigate'),
+          )
         ],
       ),
     );

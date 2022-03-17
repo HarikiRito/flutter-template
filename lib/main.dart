@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/base/routing/route_name.dart';
 
-import 'base/routing/key.dart';
+import 'base/routing/route_navigator.dart';
 import 'base/routing/route_page.dart';
 
 void main() {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: RoutePage.onGenerateRoute,
-      navigatorKey: NavigatorName.navigatorKey,
+      navigatorKey: RouteNavigator.navigatorKey,
       initialRoute: RouteName.root,
     );
   }

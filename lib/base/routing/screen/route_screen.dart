@@ -2,12 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/counter/screen.dart';
 
 import 'package:untitled/screens/root/screen.dart';
 
 import 'package:untitled/screens/unknown/screen.dart';
-
-import '../../screens/counter/screen.dart';
 
 class RouteScreen {
   static PageRoute rootPageRoute(RouteSettings settings) {
@@ -31,8 +30,10 @@ class RouteScreen {
     );
   }
 
-  static PageRoute _routeByPlatform(
-      {required RouteSettings settings, required WidgetBuilder builder}) {
+  static PageRoute _routeByPlatform({
+    required RouteSettings settings,
+    required WidgetBuilder builder,
+  }) {
     if (Platform.isIOS) {
       return CupertinoPageRoute(builder: builder, settings: settings);
     }
