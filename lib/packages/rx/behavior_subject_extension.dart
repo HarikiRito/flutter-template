@@ -1,6 +1,6 @@
 import 'package:rxdart/subjects.dart';
 
-extension RxExtension on BehaviorSubject {
+extension Operator on BehaviorSubject {
   BehaviorSubject operator +(dynamic other) {
     return _addOperator(other);
   }
