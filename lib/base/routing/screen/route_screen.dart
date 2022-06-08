@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/counter/screen.dart';
+import 'package:untitled/features/counter/screen.dart';
 
-import 'package:untitled/screens/root/screen.dart';
+import 'package:untitled/features/root/screen.dart';
 
-import 'package:untitled/screens/unknown/screen.dart';
+import 'package:untitled/features/unknown/screen.dart';
 
 class RouteScreen {
   static PageRoute rootPageRoute(RouteSettings settings) {
