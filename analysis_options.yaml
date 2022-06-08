@@ -34,6 +34,7 @@ linter:
     unnecessary_await_in_return: true
     prefer_final_in_for_each: true
     prefer_final_locals: true
+    unnecessary_brace_in_string_interps: false
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

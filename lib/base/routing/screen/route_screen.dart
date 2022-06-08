@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:untitled/features/counter/screen.dart';
-
 import 'package:untitled/features/root/screen.dart';
-
 import 'package:untitled/features/unknown/screen.dart';
+
+import '../../../features/counter/bloc.dart';
+import '../../bloc/main.dart';
 
 class RouteScreen {
   static PageRoute rootPageRoute(RouteSettings settings) {
@@ -19,7 +21,10 @@ class RouteScreen {
   static PageRoute counterPageRoute(RouteSettings settings) {
     return MaterialPageRoute(
       settings: settings,
-      builder: (_) => const CounterScreen(),
+      builder: (_) => MultiProvider(
+        providers: [BlocUtils.create((context) => CounterBloc())],
+        child: const CounterScreen(),
+      ),
     );
   }
 
