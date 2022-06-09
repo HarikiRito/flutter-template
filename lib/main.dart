@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/dependency/main.dart';
-import 'package:untitled/base/dependency/provider/router/route_name.dart';
+import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
-import 'base/dependency/provider/router/provider.dart';
-import 'base/dependency/provider/router/route_page.dart';
+import 'base/dependency/router/provider.dart';
+import 'base/dependency/router/utils/route_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  ServiceLocator.initDependencies();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    ServiceLocator.initDependencies();
     return MaterialApp(
       localizationsDelegates: const [
         AppLocalizations.delegate,

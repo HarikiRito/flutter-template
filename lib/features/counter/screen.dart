@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/dependency/main.dart';
 import 'package:untitled/base/rx/bloc_builder.dart';
 import 'package:untitled/features/counter/bloc.dart';
 
-class CounterScreen extends StatelessWidget {
+import '../../base/rx/obs_builder.dart';
+
+class CounterScreen extends ConsumerWidget {
   const CounterScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final bloc = context.read<CounterBloc>();
+  Widget build(BuildContext context, ref) {
+    final bloc = ref.watch(CounterProvider.counter);
     return Scaffold(
       appBar: AppBar(
         title: const Text('abc'),

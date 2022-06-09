@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/provider/router/base.dart';
+import 'package:untitled/base/dependency/router/base_provider.dart';
 import 'package:untitled/base/routing/input/route_input.dart';
 
 class RouterService {

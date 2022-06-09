@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/features/counter/screen.dart';
 import 'package:untitled/features/root/screen.dart';
 import 'package:untitled/features/unknown/screen.dart';
@@ -19,12 +19,12 @@ class RouteScreen {
   }
 
   static PageRoute counterPageRoute(RouteSettings settings) {
+    CounterProvider.counter = BlocUtils.createAutoDisposePod(
+      CounterBloc(0),
+    );
     return MaterialPageRoute(
       settings: settings,
-      builder: (_) => MultiProvider(
-        providers: [BlocUtils.create((context) => CounterBloc())],
-        child: const CounterScreen(),
-      ),
+      builder: (_) => const CounterScreen(),
     );
   }
 

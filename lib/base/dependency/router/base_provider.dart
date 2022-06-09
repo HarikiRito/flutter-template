@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../routing/input/route_input.dart';
+import '../../routing/input/route_input.dart';
 
 abstract class RouterBaseProvider {
   BuildContext get rootContext;

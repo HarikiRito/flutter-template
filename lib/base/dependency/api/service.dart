@@ -1,5 +1,4 @@
-import 'package:untitled/base/dependency/provider/api/base.dart';
-
+import 'base_provider.dart';
 class ApiService {
   final BaseApiProvider apiProvider;
 

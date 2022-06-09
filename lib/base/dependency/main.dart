@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:untitled/base/dependency/provider/i18n/provider.dart';
-import 'package:untitled/base/dependency/provider/router/provider.dart';
-import 'package:untitled/base/dependency/service/i18n/i18n_service.dart';
-import 'package:untitled/base/dependency/service/router/router_service.dart';
+import 'package:untitled/base/dependency/i18n/provider.dart';
+import 'package:untitled/base/dependency/i18n/service.dart';
+import 'package:untitled/base/dependency/router/provider.dart';
+import 'package:untitled/base/dependency/router/service.dart';
 
 class ServiceLocator {
   static RouterService get routerService => Get.find();
@@ -17,6 +16,8 @@ class ServiceLocator {
     Get.lazyPut(() => RouterService(routerBaseProvider: routerProvider));
     Get.lazyPut(() => I18nService(i18nProvider: i18nProvider, routerProvider: routerProvider));
   }
+
+  ServiceLocator._();
 }
 
 // Quick alias for localizations usage

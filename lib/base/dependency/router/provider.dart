@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/provider/router/base.dart';
+import 'package:untitled/base/dependency/router/base_provider.dart';
 import 'package:untitled/base/routing/input/route_input.dart';
 
 class RouterProvider extends RouterBaseProvider {
   static final navigatorKey = GlobalKey<NavigatorState>();
   NavigatorState? get _navigatorState => navigatorKey.currentState;
+
+  @override
   BuildContext get rootContext => _navigatorState!.context;
 
   @override

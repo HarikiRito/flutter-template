@@ -1,18 +1,32 @@
-import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract class BlocBase {
-  var isDispose = false;
+  bool isDispose = false;
+
   void dispose() {
     isDispose = true;
   }
 }
 
 class BlocUtils {
-  static Provider create<T extends BlocBase>(Create<T> bloc) {
-    return Provider<T>(
-      create: (context) => bloc(context),
-      dispose: (_, t) => t.dispose(),
-    );
+  // static Provider provider<T extends BlocBase>(Create<T> bloc) {
+  //   return Provider<T>(
+  //     create: (context) => bloc(context),
+  //     dispose: (_, t) => t.dispose(),
+  //   );
+  // }
+
+  /// Create an auto dispose provider for bloc
+  static AutoDisposeProvider<T> createAutoDisposePod<T extends BlocBase>(
+    T bloc, [
+    Function(T, AutoDisposeProviderRef<T> ref)? func,
+  ]) {
+    return Provider.autoDispose<T>((ref) {
+      ref.onDispose(() {
+        bloc.dispose();
+      });
+      func?.call(bloc, ref);
+      return bloc;
+    });
   }
 }

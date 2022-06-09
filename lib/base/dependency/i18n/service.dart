@@ -1,7 +1,7 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:untitled/base/dependency/provider/i18n/base.dart';
+import 'package:untitled/base/dependency/i18n/base_provider.dart';
 
-import '../../provider/router/base.dart';
+import '../router/base_provider.dart';
 
 class I18nService {
   final I18nBaseProvider i18nProvider;

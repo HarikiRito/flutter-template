@@ -1,4 +1,4 @@
-import 'package:untitled/base/dependency/provider/router/route_name.dart';
+import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
 class RouteInput {
   String routeName;
