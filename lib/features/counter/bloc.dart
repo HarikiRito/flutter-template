@@ -20,9 +20,7 @@ class CounterBloc extends BlocBase {
   }
 }
 
-
 class CounterProvider {
   static late AutoDisposeProvider<CounterBloc> counter;
-  static late AutoDisposeProvider<CounterBloc> counter2;
   CounterProvider._();
 }

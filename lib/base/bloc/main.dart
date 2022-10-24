@@ -17,7 +17,7 @@ class BlocUtils {
   // }
 
   /// Create an auto dispose provider for bloc
-  static AutoDisposeProvider<T> createAutoDisposePod<T extends BlocBase>(
+  static AutoDisposeProvider<T> createAutoDisposeBloc<T extends BlocBase>(
     T bloc, [
     Function(T, AutoDisposeProviderRef<T> ref)? func,
   ]) {

@@ -26,6 +26,12 @@ class CounterScreen extends ConsumerWidget {
                 'You have pushed the button this many times: ${count}',
               ),
             ),
+            ObsBuilder(
+              streams: [bloc.counterSubject],
+              builder: () => Text(
+                'You have pushed the button this many times: ${bloc.counterSubject.value}',
+              ),
+            ),
             Text(appLocalizations.helloWorld)
           ],
         ),
