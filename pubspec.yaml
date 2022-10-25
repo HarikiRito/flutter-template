@@ -42,6 +42,9 @@ dependencies:
   rxdart: ^0.27.5
 #  provider: ^6.0.3
   flutter_riverpod: ^2.0.2
+  h_graphql:
+    git:
+      url: https://github.com/HarikiRito/h_graphql.git
 
 dev_dependencies:
   flutter_test:
