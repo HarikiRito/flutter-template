@@ -19,8 +19,8 @@ class RouteScreen {
   }
 
   static PageRoute counterPageRoute(RouteSettings settings) {
-    CounterProvider.counter = BlocUtils.createAutoDisposeBloc(
-      CounterBloc(0),
+    CounterProvider.counter = createAutoDisposeBloc(
+      (ref) => CounterBloc(ref, 0),
     );
     return MaterialPageRoute(
       settings: settings,

@@ -12,6 +12,7 @@ class CounterScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final bloc = ref.watch(CounterProvider.counter);
+    final appLocale = ref.watch(AppService.localization);
     return Scaffold(
       appBar: AppBar(
         title: const Text('abc'),
@@ -32,7 +33,7 @@ class CounterScreen extends ConsumerWidget {
                 'You have pushed the button this many times: ${bloc.counterSubject.value}',
               ),
             ),
-            Text(appLocalizations.helloWorld)
+            Text(appLocale.helloWorld)
           ],
         ),
       ),

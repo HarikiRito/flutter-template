@@ -9,7 +9,6 @@ import 'base/dependency/router/provider.dart';
 import 'base/dependency/router/utils/route_page.dart';
 
 void main() {
-  ServiceLocator.initDependencies();
   runApp(const ProviderScope(child: MyApp()));
 }
 

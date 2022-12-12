@@ -8,25 +8,13 @@ abstract class BlocBase {
   }
 }
 
-class BlocUtils {
-  // static Provider provider<T extends BlocBase>(Create<T> bloc) {
-  //   return Provider<T>(
-  //     create: (context) => bloc(context),
-  //     dispose: (_, t) => t.dispose(),
-  //   );
-  // }
-
-  /// Create an auto dispose provider for bloc
-  static AutoDisposeProvider<T> createAutoDisposeBloc<T extends BlocBase>(
-    T bloc, [
-    Function(T, AutoDisposeProviderRef<T> ref)? func,
-  ]) {
-    return Provider.autoDispose<T>((ref) {
-      ref.onDispose(() {
-        bloc.dispose();
-      });
-      func?.call(bloc, ref);
-      return bloc;
+AutoDisposeProvider<T> createAutoDisposeBloc<T extends BlocBase>(
+    T Function(AutoDisposeRef ref) blocFunction) {
+  return Provider.autoDispose<T>((ref) {
+    final bloc = blocFunction(ref);
+    ref.onDispose(() {
+      bloc.dispose();
     });
-  }
+    return bloc;
+  });
 }
