@@ -9,7 +9,8 @@ abstract class BlocBase {
 }
 
 AutoDisposeProvider<T> createAutoDisposeBloc<T extends BlocBase>(
-    T Function(AutoDisposeRef ref) blocFunction) {
+  T Function(AutoDisposeRef ref) blocFunction,
+) {
   return Provider.autoDispose<T>((ref) {
     final bloc = blocFunction(ref);
     ref.onDispose(() {
