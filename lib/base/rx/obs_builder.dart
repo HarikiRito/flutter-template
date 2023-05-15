@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-import '../../packages/rx/main.dart';
+import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 
 class ObsBuilder extends StatefulWidget {
   final List<Stream> streams;
@@ -16,13 +17,19 @@ class ObsBuilder extends StatefulWidget {
 }
 
 class _ObsBuilderState extends State<ObsBuilder> {
+  StreamSubscription? subscription;
+
   @override
   void initState() {
     super.initState();
     // Rebuild the widget whenever the stream changes
-    Rx.merge(widget.streams).listen((_) {
-      setState(() {});
-    });
+    subscription = Rx.merge(widget.streams).listen((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    subscription?.cancel();
+    super.dispose();
   }
 
   @override

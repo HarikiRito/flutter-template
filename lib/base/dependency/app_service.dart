@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled/base/dependency/i18n/provider.dart';
-import 'package:untitled/base/dependency/i18n/service.dart';
-import 'package:untitled/base/dependency/router/provider.dart';
-import 'package:untitled/base/dependency/router/service.dart';
+import 'package:untitled/base/dependency/i18n/i18n_provider.dart';
+import 'package:untitled/base/dependency/i18n/i18n_service.dart';
+import 'package:untitled/base/dependency/router/router_provider.dart';
+import 'package:untitled/base/dependency/router/router_service.dart';
 
 class AppProvider {
   static final router = Provider((ref) => RouterProvider());

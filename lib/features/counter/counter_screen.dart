@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled/base/dependency/main.dart';
+import 'package:untitled/base/bloc/bloc_provider.dart';
+import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/rx/bloc_builder.dart';
-import 'package:untitled/features/counter/bloc.dart';
+import 'package:untitled/features/counter/counter_bloc.dart';
 
 import '../../base/rx/obs_builder.dart';
 
@@ -11,7 +12,7 @@ class CounterScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final bloc = ref.watch(CounterProvider.counter);
+    final bloc = ref.watch(BlocProvider.counter);
     final appLocale = ref.watch(AppService.localization);
     return Scaffold(
       appBar: AppBar(

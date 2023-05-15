@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/router/base_provider.dart';
+import 'package:untitled/base/dependency/router/router_base_provider.dart';
 import 'package:untitled/base/routing/input/route_input.dart';
 
 class RouterService {
@@ -21,6 +20,6 @@ class RouterService {
   }
 
   Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput) async {
-   return routerBaseProvider.pushReplacement(routeInput);
+    return routerBaseProvider.pushReplacement(routeInput);
   }
 }

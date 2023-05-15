@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled/base/dependency/main.dart';
+import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
-import 'base/dependency/router/provider.dart';
+import 'base/dependency/router/router_provider.dart';
 import 'base/dependency/router/utils/route_page.dart';
 
 void main() {

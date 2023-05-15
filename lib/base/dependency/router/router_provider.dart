@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/router/base_provider.dart';
+import 'package:untitled/base/dependency/router/router_base_provider.dart';
 import 'package:untitled/base/routing/input/route_input.dart';
 
 class RouterProvider extends RouterBaseProvider {

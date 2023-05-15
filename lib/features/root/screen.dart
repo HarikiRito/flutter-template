@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/routing/input/route_input.dart';
 
-import '../../base/dependency/main.dart';
+import '../../base/dependency/app_service.dart';
 
 class RootScreen extends ConsumerWidget {
   const RootScreen({Key? key}) : super(key: key);
