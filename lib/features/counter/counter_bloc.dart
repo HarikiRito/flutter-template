@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled/base/dependency/app_service.dart';
 
 import '../../base/bloc/bloc_base.dart';
 import '../../packages/rx/main.dart';
