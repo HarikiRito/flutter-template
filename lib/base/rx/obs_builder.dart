@@ -5,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 
 class ObsBuilder extends StatefulWidget {
   final List<Stream> streams;
-  final Widget Function() builder;
+  final Widget Function(BuildContext context) builder;
 
   const ObsBuilder({
     this.streams = const [],
@@ -34,6 +34,6 @@ class _ObsBuilderState extends State<ObsBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder();
+    return widget.builder(context);
   }
 }

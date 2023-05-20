@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/router/router_base_provider.dart';
-import 'package:untitled/base/routing/input/route_input.dart';
+import 'package:untitled/base/dependency/router/utils/route_input.dart';
+import 'package:untitled/base/dependency/router/router_provider_interface.dart';
 
-class RouterProvider extends RouterBaseProvider {
-  static final navigatorKey = GlobalKey<NavigatorState>();
+class RouterProvider extends RouterProviderInterface {
+  @override
+  late final GlobalKey<NavigatorState> navigatorKey;
+
   NavigatorState? get _navigatorState => navigatorKey.currentState;
+
+  RouterProvider({GlobalKey<NavigatorState>? key}) {
+    navigatorKey = key ?? GlobalKey<NavigatorState>();
+  }
 
   @override
   BuildContext get rootContext => _navigatorState!.context;
 
   @override
-  void pop<T extends Object>([T? result]) {
-    _navigatorState?.pop(result);
+  void pop<T extends Object>({T? result, BuildContext? context}) {
+    Navigator.of(context ?? rootContext).pop(result);
   }
 
   @override
-  void popUntil(RoutePredicate predicate) {
-    _navigatorState?.popUntil(predicate);
+  void popUntil(RoutePredicate predicate, {BuildContext? context}) {
+    Navigator.of(context ?? rootContext).popUntil(predicate);
   }
 
   @override
-  Future<T?> push<T extends Object>(RouteInput routeInput) async {
-    final result = await _navigatorState?.pushNamed(
+  Future<T?> push<T extends Object>(RouteInput routeInput,
+      {BuildContext? context}) async {
+    final result = await Navigator.of(context ?? rootContext).pushNamed(
       routeInput.routeName,
       arguments: routeInput.arguments,
     );
@@ -29,9 +36,24 @@ class RouterProvider extends RouterBaseProvider {
   }
 
   @override
-  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput) async {
-    final result = await _navigatorState?.pushReplacementNamed(
+  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput,
+      {BuildContext? context}) async {
+    final result =
+        await Navigator.of(context ?? rootContext).pushReplacementNamed(
       routeInput.routeName,
+      arguments: routeInput.arguments,
+    );
+    return result as T?;
+  }
+
+  @override
+  Future<T?> pushAndRemoveUntil<T extends Object?>(
+      RouteInput routeInput, RoutePredicate predicate,
+      {BuildContext? context}) async {
+    final result =
+        await Navigator.of(context ?? rootContext).pushNamedAndRemoveUntil(
+      routeInput.routeName,
+      predicate,
       arguments: routeInput.arguments,
     );
     return result as T?;

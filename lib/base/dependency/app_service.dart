@@ -15,7 +15,7 @@ class AppService {
   static final router = Provider(
     (ref) {
       return RouterService(
-        routerBaseProvider: ref.watch(AppProvider.router),
+        routerInterface: ref.watch(AppProvider.router),
       );
     },
   );

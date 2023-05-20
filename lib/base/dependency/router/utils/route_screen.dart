@@ -3,7 +3,9 @@ import 'package:untitled/base/bloc/bloc_base.dart';
 import 'package:untitled/base/bloc/bloc_provider.dart';
 import 'package:untitled/features/counter/counter_bloc.dart';
 import 'package:untitled/features/counter/counter_screen.dart';
+import 'package:untitled/features/home/home_screen.dart';
 import 'package:untitled/features/root/root_screen.dart';
+import 'package:untitled/features/settings/settings_screen.dart';
 import 'package:untitled/features/unknown/unknown_screen.dart';
 
 class RouteScreen {
@@ -28,6 +30,20 @@ class RouteScreen {
     return MaterialPageRoute(
       settings: settings,
       builder: (_) => const UnknownScreen(),
+    );
+  }
+
+  static PageRoute homePageRoute(RouteSettings settings) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (_) => const HomeScreen(),
+    );
+  }
+
+  static PageRoute settingPageRoute(RouteSettings settings) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (_) => const SettingsScreen(),
     );
   }
 }

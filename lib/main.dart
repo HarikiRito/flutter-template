@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
 import 'base/dependency/router/router_provider.dart';
@@ -11,13 +12,15 @@ void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final routerService = ref.watch(AppService.router);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: RoutePage.onGenerateRoute,
-      navigatorKey: RouterProvider.navigatorKey,
+      navigatorKey: routerService.navigatorKey,
       initialRoute: RouteName.root,
     );
   }

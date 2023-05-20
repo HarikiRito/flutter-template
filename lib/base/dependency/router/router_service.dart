@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/router/router_base_provider.dart';
-import 'package:untitled/base/routing/input/route_input.dart';
+import 'package:untitled/base/dependency/router/router_provider_interface.dart';
+import 'package:untitled/base/dependency/router/utils/route_input.dart';
 
 class RouterService {
-  final RouterBaseProvider routerBaseProvider;
+  final RouterProviderInterface routerInterface;
 
-  RouterService({required this.routerBaseProvider});
+  RouterService({required this.routerInterface});
 
-  void pop<T extends Object>([T? result]) {
-    routerBaseProvider.pop(result);
+  GlobalKey<NavigatorState> get navigatorKey => routerInterface.navigatorKey;
+  BuildContext get rootContext => routerInterface.rootContext;
+
+  void pop<T extends Object>({T? result, BuildContext? context}) {
+    routerInterface.pop(result: result, context: context);
   }
 
-  void popUntil(RoutePredicate predicate) {
-    routerBaseProvider.popUntil(predicate);
+  void popUntil(RoutePredicate predicate, {BuildContext? context}) {
+    routerInterface.popUntil(predicate, context: context);
   }
 
-  Future<T?> push<T extends Object>(RouteInput routeInput) async {
-    return routerBaseProvider.push(routeInput);
+  Future<T?> push<T extends Object>(RouteInput routeInput,
+      {BuildContext? context}) async {
+    return routerInterface.push(routeInput, context: context);
   }
 
-  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput) async {
-    return routerBaseProvider.pushReplacement(routeInput);
+  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput,
+      {BuildContext? context}) async {
+    return routerInterface.pushReplacement(routeInput, context: context);
+  }
+
+  Future<T?> pushAndRemoveUntil<T extends Object?>(
+      RouteInput routeInput, RoutePredicate predicate,
+      {BuildContext? context}) async {
+    return routerInterface.pushAndRemoveUntil(routeInput, predicate,
+        context: context);
   }
 }
