@@ -14,12 +14,13 @@ class HomeScreen extends ConsumerWidget {
       body: Center(
         child: Column(
           children: [
-            Text('Home Screen'),
+            const Text('Home Screen'),
             ElevatedButton(
-                onPressed: () {
-                  homeRouter.push(RouteInput.counter());
-                },
-                child: Text('To counter'))
+              onPressed: () {
+                homeRouter.push(RouteInput.counter());
+              },
+              child: const Text('To counter'),
+            )
           ],
         ),
       ),

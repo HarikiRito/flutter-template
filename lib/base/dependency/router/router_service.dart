@@ -8,6 +8,7 @@ class RouterService {
   RouterService({required this.routerInterface});
 
   GlobalKey<NavigatorState> get navigatorKey => routerInterface.navigatorKey;
+
   BuildContext get rootContext => routerInterface.rootContext;
 
   void pop<T extends Object>({T? result, BuildContext? context}) {
@@ -18,20 +19,29 @@ class RouterService {
     routerInterface.popUntil(predicate, context: context);
   }
 
-  Future<T?> push<T extends Object>(RouteInput routeInput,
-      {BuildContext? context}) async {
+  Future<T?> push<T extends Object>(
+    RouteInput routeInput, {
+    BuildContext? context,
+  }) async {
     return routerInterface.push(routeInput, context: context);
   }
 
-  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput,
-      {BuildContext? context}) async {
+  Future<T?> pushReplacement<T extends Object?>(
+    RouteInput routeInput, {
+    BuildContext? context,
+  }) async {
     return routerInterface.pushReplacement(routeInput, context: context);
   }
 
   Future<T?> pushAndRemoveUntil<T extends Object?>(
-      RouteInput routeInput, RoutePredicate predicate,
-      {BuildContext? context}) async {
-    return routerInterface.pushAndRemoveUntil(routeInput, predicate,
-        context: context);
+    RouteInput routeInput,
+    RoutePredicate predicate, {
+    BuildContext? context,
+  }) async {
+    return routerInterface.pushAndRemoveUntil(
+      routeInput,
+      predicate,
+      context: context,
+    );
   }
 }

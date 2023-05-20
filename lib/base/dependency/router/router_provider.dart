@@ -26,8 +26,10 @@ class RouterProvider extends RouterProviderInterface {
   }
 
   @override
-  Future<T?> push<T extends Object>(RouteInput routeInput,
-      {BuildContext? context}) async {
+  Future<T?> push<T extends Object>(
+    RouteInput routeInput, {
+    BuildContext? context,
+  }) async {
     final result = await Navigator.of(context ?? rootContext).pushNamed(
       routeInput.routeName,
       arguments: routeInput.arguments,
@@ -36,8 +38,10 @@ class RouterProvider extends RouterProviderInterface {
   }
 
   @override
-  Future<T?> pushReplacement<T extends Object?>(RouteInput routeInput,
-      {BuildContext? context}) async {
+  Future<T?> pushReplacement<T extends Object?>(
+    RouteInput routeInput, {
+    BuildContext? context,
+  }) async {
     final result =
         await Navigator.of(context ?? rootContext).pushReplacementNamed(
       routeInput.routeName,
@@ -48,8 +52,10 @@ class RouterProvider extends RouterProviderInterface {
 
   @override
   Future<T?> pushAndRemoveUntil<T extends Object?>(
-      RouteInput routeInput, RoutePredicate predicate,
-      {BuildContext? context}) async {
+    RouteInput routeInput,
+    RoutePredicate predicate, {
+    BuildContext? context,
+  }) async {
     final result =
         await Navigator.of(context ?? rootContext).pushNamedAndRemoveUntil(
       routeInput.routeName,

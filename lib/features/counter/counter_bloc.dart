@@ -6,7 +6,9 @@ import '../../packages/rx/main.dart';
 class CounterBloc extends BlocBase {
   final counterSubject = BehaviorSubject.seeded(0);
   final Ref ref;
-  CounterBloc(this.ref) {}
+
+  CounterBloc(this.ref);
+
   @override
   void dispose() {
     super.dispose();

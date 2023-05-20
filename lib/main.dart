@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
-import 'base/dependency/router/router_provider.dart';
 import 'base/dependency/router/utils/route_page.dart';
 
 void main() {
