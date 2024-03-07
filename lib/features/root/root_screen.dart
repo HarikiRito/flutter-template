@@ -7,7 +7,7 @@ import 'package:untitled/features/root/enums/navigation_bottom_tab_enum.dart';
 import 'package:untitled/features/root/widgets/app_bottom_navigation_bar.dart';
 
 class RootScreen extends ConsumerWidget {
-  const RootScreen({Key? key}) : super(key: key);
+  const RootScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {

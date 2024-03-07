@@ -5,7 +5,7 @@ import 'package:untitled/base/rx/obs_builder.dart';
 import 'package:untitled/features/root/enums/navigation_bottom_tab_enum.dart';
 
 class AppBottomNavigationBar extends ConsumerWidget {
-  const AppBottomNavigationBar({Key? key}) : super(key: key);
+  const AppBottomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context, ref) {

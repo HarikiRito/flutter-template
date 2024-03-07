@@ -4,7 +4,7 @@ import 'package:untitled/base/dependency/router/utils/route_input.dart';
 import 'package:untitled/shared/providers/bottom_navigation_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
@@ -20,7 +20,7 @@ class HomeScreen extends ConsumerWidget {
                 homeRouter.push(RouteInput.counter());
               },
               child: const Text('To counter'),
-            )
+            ),
           ],
         ),
       ),

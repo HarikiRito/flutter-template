@@ -6,7 +6,7 @@ import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/rx/obs_builder.dart';
 
 class CounterScreen extends ConsumerWidget {
-  const CounterScreen({Key? key}) : super(key: key);
+  const CounterScreen({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
@@ -26,7 +26,7 @@ class CounterScreen extends ConsumerWidget {
                 'You have pushed the button this many times: ${bloc.counterSubject.value}',
               ),
             ),
-            Text(appLocale.helloWorld)
+            Text(appLocale.helloWorld),
           ],
         ),
       ),

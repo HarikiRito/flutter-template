@@ -18,8 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.0"
-  flutter: '>=3.10.0'
+  sdk: ">=3.3.0"
+  flutter: '>=3.19.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,6 +43,8 @@ dependencies:
   json_annotation: ^4.8.0
   freezed_annotation: ^2.2.0
 
+  riverpod: ^2.5.0
+  flutter_gen: ^5.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -52,11 +54,11 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
-  json_serializable: ^6.6.1
+  flutter_lints: ^3.0.1
+  json_serializable: ^6.7.1
   build_runner: ^2.3.3
   change_app_package_name: ^1.1.0
-  freezed: ^2.3.2
+  freezed: ^2.4.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

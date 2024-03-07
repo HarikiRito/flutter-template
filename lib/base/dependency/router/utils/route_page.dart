@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/base/dependency/router/utils/route_screen.dart';
 
-import 'route_name.dart';
+import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
 class RoutePage {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

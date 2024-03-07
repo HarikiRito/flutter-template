@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/dependency/app_service.dart';
 import 'package:untitled/base/dependency/router/utils/route_name.dart';
 
-import 'base/dependency/router/utils/route_page.dart';
+import 'package:untitled/base/dependency/router/utils/route_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override

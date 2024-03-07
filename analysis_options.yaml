@@ -26,6 +26,7 @@ linter:
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
     use_key_in_widget_constructors: false
     always_declare_return_types: true
+    always_use_package_imports: true
     close_sinks: true
     cancel_subscriptions: true
     require_trailing_commas: true
@@ -36,5 +37,12 @@ linter:
     prefer_final_locals: true
     unnecessary_brace_in_string_interps: false
 
+
+analyzer:
+  errors:
+    unused_element: ignore
+  plugins:
+    - custom_lint
+  exclude: [lib/**.freezed.dart, lib/**.g.dart]
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
