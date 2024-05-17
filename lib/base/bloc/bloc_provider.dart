@@ -1,4 +1,4 @@
-import 'package:riverpod/src/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled/base/bloc/bloc_base.dart';
 import 'package:untitled/features/counter/counter_bloc.dart';
 import 'package:untitled/shared/bloc/app_bloc.dart';
