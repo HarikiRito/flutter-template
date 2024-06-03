@@ -8,7 +8,7 @@ final _bottomNavigationRouterFamily =
     Provider.autoDispose.family((ref, NavigatorBottomTabEnum tab) {
   final appBloc = ref.watch(BlocProvider.app);
   final navigatorKey = appBloc.navigatorKeysMap[tab];
-  return RouterService(routerInterface: RouterProvider(key: navigatorKey));
+  return RouterService(routerProvider: RouterProvider(key: navigatorKey));
 });
 
 class BottomNavigationProvider {

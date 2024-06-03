@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/base/dependency/router/router_provider_interface.dart';
+import 'package:untitled/base/dependency/router/router_provider.dart';
 import 'package:untitled/base/dependency/router/utils/route_input.dart';
 
 class RouterService {
-  final RouterProviderInterface routerInterface;
+  final RouterProvider routerProvider;
 
-  RouterService({required this.routerInterface});
+  RouterService({required this.routerProvider});
 
-  GlobalKey<NavigatorState> get navigatorKey => routerInterface.navigatorKey;
+  GlobalKey<NavigatorState> get navigatorKey => routerProvider.navigatorKey;
 
-  BuildContext get rootContext => routerInterface.rootContext;
+  BuildContext get rootContext => routerProvider.rootContext;
 
   void pop<T extends Object>({T? result, BuildContext? context}) {
-    routerInterface.pop(result: result, context: context);
+    routerProvider.pop(result: result, context: context);
   }
 
   void popUntil(RoutePredicate predicate, {BuildContext? context}) {
-    routerInterface.popUntil(predicate, context: context);
+    routerProvider.popUntil(predicate, context: context);
   }
 
   Future<T?> push<T extends Object>(
     RouteInput routeInput, {
     BuildContext? context,
   }) async {
-    return routerInterface.push(routeInput, context: context);
+    return routerProvider.push(routeInput, context: context);
   }
 
   Future<T?> pushReplacement<T extends Object?>(
     RouteInput routeInput, {
     BuildContext? context,
   }) async {
-    return routerInterface.pushReplacement(routeInput, context: context);
+    return routerProvider.pushReplacement(routeInput, context: context);
   }
 
   Future<T?> pushAndRemoveUntil<T extends Object?>(
@@ -38,7 +38,7 @@ class RouterService {
     RoutePredicate predicate, {
     BuildContext? context,
   }) async {
-    return routerInterface.pushAndRemoveUntil(
+    return routerProvider.pushAndRemoveUntil(
       routeInput,
       predicate,
       context: context,
