@@ -13,18 +13,18 @@ class CounterScreen extends ConsumerWidget {
     final bloc = ref.watch(BlocProvider.counter);
     final appLocale = ref.watch(AppService.localization);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Counter'),
-      ),
+      appBar: AppBar(title: const Text('Counter')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ObsBuilder(
               streams: [bloc.counterSubject],
-              builder: (ctx) => Text(
-                'You have pushed the button this many times: ${bloc.counterSubject.value}',
-              ),
+              builder: (ctx) {
+                return Text(
+                  'You have pushed the button this many times: ${bloc.counterSubject.value}',
+                );
+              },
             ),
             Text(appLocale.helloWorld),
           ],
