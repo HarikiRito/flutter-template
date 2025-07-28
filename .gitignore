@@ -48,3 +48,4 @@ app.*.map.json
 
 # Generated files
 lib/l10n/gen_l10n/*
+CLAUDE.md
