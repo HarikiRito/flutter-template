@@ -7,7 +7,7 @@ class ObsBuilder extends StatefulWidget {
   final List<Stream> streams;
   final Widget Function(BuildContext context) builder;
 
-  /// By default, the widget will rebuild whenever the stream emits a new value.
+  /// By default, the widget will rebuild whenever the stream emits a new value by reference.
   /// If you want to rebuild the widget even if the new value is the same as the old one, set this to true.
   final bool rebuildOnSameValueChange;
 
@@ -22,23 +22,25 @@ class ObsBuilder extends StatefulWidget {
 }
 
 class _ObsBuilderState extends State<ObsBuilder> {
-  StreamSubscription? subscription;
+  List<StreamSubscription> subscriptions = [];
 
   @override
   void initState() {
     super.initState();
-    var stream = Rx.merge(widget.streams);
 
-    if (!widget.rebuildOnSameValueChange) {
-      stream = stream.distinct();
+    for (var stream in widget.streams) {
+      if (!widget.rebuildOnSameValueChange) {
+        stream = stream.distinct();
+      }
+      subscriptions.add(stream.listen((_) => setState(() {})));
     }
-    // Rebuild the widget whenever the stream changes
-    subscription = stream.listen((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    subscription?.cancel();
+    for (final subscription in subscriptions) {
+      subscription.cancel();
+    }
     super.dispose();
   }
 
